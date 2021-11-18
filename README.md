@@ -2,6 +2,15 @@
 
 **A GitHub Action to launch a workflow using [Nextflow Tower](https://tower.nf) - <https://tower.nf>.**
 
+## NB: This `master` branch is onlyfor backwards compatability
+
+Because version 2.0 of this action broke backwards compatability, and nf-core pipelines at the time
+are set up to use `@master`, this branch contains workarounds to ensure that they keep working.
+
+Going forward, please use `@2` for the latest version under the v2 major release.
+
+If writing a new action, please do not use this `master` branch. Instead see `main` for the latest stable code.
+
 ## Example usage
 
 ### Minimal example
@@ -17,7 +26,7 @@ jobs:
   run-tower:
     runs-on: ubuntu-latest
     steps:
-      - uses: nf-core/tower-action@master
+      - uses: nf-core/tower-action@2
         # Use repository secrets for sensitive fields
         with:
           access_token: ${{ secrets.TOWER_ACCESS_TOKEN }}
