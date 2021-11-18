@@ -47,7 +47,7 @@ runs:
   env:
     TOWER_WORKSPACE_ID: ${{ inputs.workspace_id }}
     TOWER_API_ENDPOINT: ${{ inputs.api_endpoint }}
-    TOWER_BEARER_TOKEN: ${{ inputs.bearer_token }}
+    TOWER_ACCESS_TOKEN: ${{ inputs.bearer_token }}
     TOWER_COMPUTE_ENV: ${{ inputs.compute_env }}
     PIPELINE: ${{ inputs.pipeline }}
     REVISION: ${{ inputs.revision }}
