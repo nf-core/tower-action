@@ -8,12 +8,12 @@ branding:
   color: 'purple'
 
 inputs:
-  access_token:
+  bearer_token:
     description: Nextflow Tower access token
     required: true
   compute_env:
     description: Nextflow Tower compute env
-    required: false
+    required: true
   workspace_id:
     description: Nextflow Tower workspace ID
     required: false
@@ -35,9 +35,11 @@ inputs:
   parameters:
     description: Pipeline parameters
     required: false
+    default: '{}'
   profiles:
     description: Nextflow config profiles
     required: false
+    default: '[]'
 
 runs:
   using: 'docker'
@@ -45,7 +47,7 @@ runs:
   env:
     TOWER_WORKSPACE_ID: ${{ inputs.workspace_id }}
     TOWER_API_ENDPOINT: ${{ inputs.api_endpoint }}
-    TOWER_ACCESS_TOKEN: ${{ inputs.access_token }}
+    TOWER_ACCESS_TOKEN: ${{ inputs.bearer_token }}
     TOWER_COMPUTE_ENV: ${{ inputs.compute_env }}
     PIPELINE: ${{ inputs.pipeline }}
     REVISION: ${{ inputs.revision }}
